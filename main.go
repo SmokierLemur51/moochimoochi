@@ -1,48 +1,71 @@
 package main
 
 import (
+	"html/template"
 	"net/http"
-	
-	"./routes"
+	"log"
+	"fmt"
 
-	"github.com/gin-gonic/contrib/static"
-	"github.com/gin-gonic/gin"
+	"github.com/go-chi/chi/v5"
+	// "github.com/go-chi/chi/v5/middleware"
+	// "github.com/go-chi/chi/v5/middleware/cookieauth"
+	// "github.com/mattn/go-sqlite3"
+	// "golang.org/x/crypto/bcrypt"
 )
 
-const (
-	TITLE = "Greenleaf Cleaning"
-)
+type PageData struct {
+	Title	string
+	Message string
+	// Account	Account
+}
 
-func main(){
-	r := gin.Default()
+type Account struct {
+	Username	string
+	Email		string
+	Password	string
+}
 
-	r.LoadHTMLGlob("templates/*")
-
-	r.GET("/index", func(c *gin.Context) {
-		c.HTML(http.StatusOK, "index.html", gin.H{
-			"title": TITLE,
-		})
-	})
-	
-	// routes
-	r.GET("/about", rotues.aboutHandler)
-	r.GET("/contact", routes.contactHandler)
-	r.GET("/testing", routes.testHandler)
-
-
-	r.Use(static.Serve("/", static.LocalFile("./views", true)))
-
-	// setup route group for the api
-	api := r.Group("/api")
-	{
-		api.GET("/", func(c *gin.Context) {
-			c.JSON(http.StatusOK, gin.H {
-				"message": "pong",
-			})
-		})
+func indexHandler(w http.ResponseWriter, r *http.Request) {
+	data := PageData{
+		Title: "MoochiMoochi",
+		Message: "The million dollar project ... ",
+		// Account: account,
 	}
 
-	r.Run(":5000")
+	tmpl, err := template.ParseFiles("templates/index.html")
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+		return
+	}
+
+	err = tmpl.Execute(w, data)
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+		return
+	}
 }
 
 
+func processFormHandler(w http.ResponseWriter, r *http.Request) {
+	r.ParseForm()
+	
+	username := r.FormValue("username")
+	email := r.FormValue("email")
+	password := r.FormValue("password")
+	
+	http.Redirect(w, r, "/", http.StatusSeeOther)
+	fmt.Printf("%s %s %s", username, email, password) // why does this not show?
+}
+
+
+
+func main() {
+	r := chi.NewRouter()
+	r.Handle("/static/*", http.StripPrefix("/static/", http.FileServer(http.Dir("./static"))))
+
+	r.Get("/", indexHandler)
+	r.Post("/process-form", processFormHandler)
+
+	log.Println("Server started on :5000")
+	http.ListenAndServe(":5000", r)
+}
