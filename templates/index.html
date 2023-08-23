@@ -60,6 +60,50 @@
         <button type="submit" class="btn btn-primary">Submit</button>
       </form>
     </div>
+
+    <!-- gutter drop form -->
+    <div class="container-md">
+      <h3>Schedule Gutter Cut-N-Drop</h3>
+      <form action="/process-cutndrop" method="post">
+        <!-- username -->
+        <div class="mb-3">
+          <label for="name" class="form-label">Name:</label>
+          <input type="text" class="form-control" id="name" aria-describedby="usernameHelp">
+        </div>
+        <!-- email -->
+        <div class="mb-3">
+          <label for="email" class="form-label">Email address:</label>
+          <input type= "email" class="form-control" id="email" aria-describedby="emailHelp">
+          <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+        </div>
+        <!-- adderess -->
+        <div class="mb-3">
+          <label for="streetAddress1" class="form-label">Street 1:</label>
+          <input type="text" class="form-control" id="streetAddress">
+        </div>
+        <div class="mb-3">
+          <label for="streetAddress2" class="form-label">Street 2:</label>
+          <input type="text" class="form-control" id="streetAddress2">
+        </div>
+        <div class="mb-3">
+          <label for="city" class="form-label">City: </label>
+          <input type="text" class="form-control" id="city">
+        </div>
+        <div class="mb-3">
+          <label for="state" class="form-label">State:</label>
+          <input type="text" class="form-control" id="state">
+        </div>
+        <div class="mb-3">
+          <label for="zip" class="form-label">Zip:</label>
+          <input type="text" class="form-control" id="zip">
+        </div>
+        <div class="mb-3 form-check">
+          <input type="checkbox" class="form-check-input" id="exampleCheck1">
+          <label class="form-check-label" for="exampleCheck1">Check me out</label>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
     
 
 
