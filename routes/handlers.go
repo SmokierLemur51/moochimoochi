@@ -2,8 +2,7 @@ package routes
 
 import (	
 	"net/http"
-	// "encoding/json"
-	// "fmt"
+	"encoding/json"
 
 	"github.com/SmokierLemur51/moochimoochi/models"
 	"github.com/SmokierLemur51/moochimoochi/utils"
@@ -28,3 +27,17 @@ func IndexHandler(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
+
+// Post data 
+func OrderValidationHandler(w http.ResponseWriter, r *http.Request) {
+	if err := r.ParseForm(); err != nil {
+		http.Error(w, "Error parsing form data...", http.StatusBadRequest)
+	}
+	// create order information sturct from json
+
+	// go func() // set go routine to grab gps coord from google api
+
+	// check coordinates against the OperationalGrid struct
+
+	// generate order for backend if looks good
+}

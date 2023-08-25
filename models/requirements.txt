@@ -1,0 +1,46 @@
+#*#*#*# MODELS.GO #*#*#*#
+	
+	** Struct Planning ** 
+		
+		- PageData
+		- Account
+		- FormData
+		- Address
+		- OperationalGrid
+		- AdminFeedData
+
+
+#*#*#*# MAPPING.GO #*#*#*#
+
+	Right now my plan to manage the operational area is to create 
+	a graph of the (x,y) coordinates of the area of operation. I think
+	this would be easier and result in smaller api calls.
+
+	Basically the user will put in their address, which is sent to the backend
+	and if those coordinates are inside the area of operation, an error message
+	will not be sent back to the client telling them they are out of range.
+
+
+	What will I need?
+
+		- Google maps api {
+			- I think this will be the best way to grab coordinates
+			- I also want to implement a mapping feature to make driving more efficient
+		}
+		- How to calculate complex shapes on a graph, but not too complex
+		- Calculating the estimated cost of the trip and how many miles will be traveled
+		- Generate data for the user to better understand the business they run
+
+
+		** Structs & Struct-Methods Required **
+
+			- Address
+				- Generate x,y
+				- Have different grades of delivery fees to calculate. Within 15 miles
+					it could be cheaper than outside of 45 miles
+
+			- OperatonalGrid
+				- Compare coordinates function
+
+			- Approved order
+				- Generate delivery charge
