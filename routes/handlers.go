@@ -2,7 +2,7 @@ package routes
 
 import (	
 	"net/http"
-	"encoding/json"
+	// "encoding/json"
 
 	"github.com/SmokierLemur51/moochimoochi/models"
 	"github.com/SmokierLemur51/moochimoochi/utils"
@@ -15,7 +15,7 @@ var TITLE string = "moochimoochi"
 
 
 func IndexHandler(w http.ResponseWriter, r *http.Request) {
-	page := models.PageRenderData{
+	page := models.PageData{
 		Page: "index.html",
 		Title: TITLE,
 	}

@@ -4,9 +4,12 @@ package models
 type PageData struct {
 	Page 	string
 	Title	string
+	T
 }
 
 
 type AdministrativeFeed struct {
-	Page String
+	Page string
 }
+
+
