@@ -10,6 +10,7 @@ type PageData struct {
 
 type AdministrativeFeed struct {
 	Page string
+	Title string
 }
 
 

@@ -10,4 +10,3 @@ func ConfigureRoutes(router *chi.Mux) {
 	router.Get("/", IndexHandler)
 }
 
-// should i create a separate func for api routes?
