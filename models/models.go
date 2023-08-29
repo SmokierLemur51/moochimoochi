@@ -4,8 +4,19 @@ package models
 type PageData struct {
 	Page 	string
 	Title	string
-	T
+	CoilSelections []GutterCoil
 }
+
+type Product struct {
+
+}
+
+type GutterCoil struct {
+	ID	int
+	Size  string
+	
+}
+
 
 
 type AdministrativeFeed struct {

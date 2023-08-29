@@ -34,16 +34,41 @@
       </div>
     </nav>
 
+    <!-- order dropdown -->
+    <div class="d-flex justify-content-center">
+      <div class="dropdown centered-div">
+        <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+          Order Gutter Material
+        </button>
+        <div class="dropdown-menu dropdown-menu-lg" aria-labelledby="dropdownMenuButton">
+          <form id="order" class="px-4 py-3">
+            <div class="mb-3">
+              <label for="postsubject" class="form-label">Subject</label>
+              <input type="text" class="form-control" id="postsubject">
+            </div>
+            <div class="mb-3">
+              <label for="type">Journal Type</label>
+              <input type="text" class="form-control" id="type">
+            </div>
+            <div class="mb-3">
+              <label for="postcontent">Content</label>
+              <textarea class="form-control" id="postcontent" rows="5" placeholder="Enter content ..."></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Create Journal</button>
+          </form>
+        </div>
+      </div>
+
 
     <!-- gutter drop form -->
     <div class="container-md">
       <h3>Schedule Gutter Cut-N-Drop</h3>
       <form id="order" action="/process-cutndrop" method="post">
-<!--         <select>
+        <select>
           {{range .CoilSelections}}
-            <option id=""></option>
+            <option id="{{.CoilSelections.Id}}"></option>
           {{end}}
-        </select> -->
+        </select>
 
         <div class="mb-3">
           <label for="name" class="form-label">Name:</label>
