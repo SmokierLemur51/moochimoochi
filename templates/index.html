@@ -37,77 +37,58 @@
     <!-- order dropdown -->
     <div class="d-flex justify-content-center">
       <div class="dropdown centered-div">
+
         <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
           Order Gutter Material
         </button>
         <div class="dropdown-menu dropdown-menu-lg" aria-labelledby="dropdownMenuButton">
           <form id="order" class="px-4 py-3">
+            <!-- order selections -->
+            <select>
+              {{range .CoilSelection}}
+                <option value="{{.ID}}">{{.DisplayInformation}}<b>$ {{.Selling}}</b></option>
+              {{end}}
+            </select>
+
+            <!-- contact infromation -->
             <div class="mb-3">
-              <label for="postsubject" class="form-label">Subject</label>
-              <input type="text" class="form-control" id="postsubject">
+              <label for="name" class="form-label">Name:</label>
+              <input type="text" class="form-control" id="name" aria-describedby="usernameHelp">
             </div>
             <div class="mb-3">
-              <label for="type">Journal Type</label>
-              <input type="text" class="form-control" id="type">
+              <label for="email" class="form-label">Email address:</label>
+              <input type= "email" class="form-control" id="email" aria-describedby="emailHelp">
+              <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+            </div>
+            <!-- delivery address -->
+            <div class="mb-3">
+              <label for="streetAddress1" class="form-label">Street 1:</label>
+              <input type="text" class="form-control" id="streetAddress">
             </div>
             <div class="mb-3">
-              <label for="postcontent">Content</label>
-              <textarea class="form-control" id="postcontent" rows="5" placeholder="Enter content ..."></textarea>
+              <label for="streetAddress2" class="form-label">Street 2:</label>
+              <input type="text" class="form-control" id="streetAddress2">
             </div>
-            <button type="submit" class="btn btn-primary">Create Journal</button>
+            <div class="mb-3">
+              <label for="city" class="form-label">City: </label>
+              <input type="text" class="form-control" id="city">
+            </div>
+            <div class="mb-3">
+              <label for="state" class="form-label">State:</label>
+              <input type="text" class="form-control" id="state">
+            </div>
+            <div class="mb-3">
+              <label for="zip" class="form-label">Zip Code:</label>
+              <input type="text" class="form-control" id="zip">
+            </div>
+            <button type="submit" class="btn btn-primary">Submit Order</button>
           </form>
         </div>
       </div>
-
-
-    <!-- gutter drop form -->
-    <div class="container-md">
-      <h3>Schedule Gutter Cut-N-Drop</h3>
-      <form id="order" action="/process-cutndrop" method="post">
-        <select>
-          {{range .CoilSelections}}
-            <option id="{{.CoilSelections.Id}}"></option>
-          {{end}}
-        </select>
-
-        <div class="mb-3">
-          <label for="name" class="form-label">Name:</label>
-          <input type="text" class="form-control" id="name" aria-describedby="usernameHelp">
-        </div>
-        <!-- email -->
-        <div class="mb-3">
-          <label for="email" class="form-label">Email address:</label>
-          <input type= "email" class="form-control" id="email" aria-describedby="emailHelp">
-          <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
-        </div>
-        <!-- adderess -->
-        <div class="mb-3">
-          <label for="streetAddress1" class="form-label">Street 1:</label>
-          <input type="text" class="form-control" id="streetAddress">
-        </div>
-        <div class="mb-3">
-          <label for="streetAddress2" class="form-label">Street 2:</label>
-          <input type="text" class="form-control" id="streetAddress2">
-        </div>
-        <div class="mb-3">
-          <label for="city" class="form-label">City: </label>
-          <input type="text" class="form-control" id="city">
-        </div>
-        <div class="mb-3">
-          <label for="state" class="form-label">State:</label>
-          <input type="text" class="form-control" id="state">
-        </div>
-        <div class="mb-3">
-          <label for="zip" class="form-label">Zip Code:</label>
-          <input type="text" class="form-control" id="zip">
-        </div>
-        <div class="mb-3 form-check">
-          <input type="checkbox" class="form-check-input" id="exampleCheck1">
-          <label class="form-check-label" for="exampleCheck1">Check me out</label>
-        </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
-      </form>
     </div>
+    <br>  
+
+
     
 
 

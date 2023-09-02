@@ -31,3 +31,15 @@ func RenderAdministrativeTemplate(w http.ResponseWriter, data models.Administrat
 	}
 	return nil 
 }
+
+// func RenderGutterTemplate(w http.ResponseWriter, data models.GutterPageData) error {
+//     tmpl, err := template.ParseFiles("templates/"+data.Page)
+//     if err != nil {
+//         return err
+//     }
+//     err = tmpl.Execute(w, data)
+//     if err != nil {
+//         return err
+//     }
+//     return nil
+// }
