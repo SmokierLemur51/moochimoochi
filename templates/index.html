@@ -18,10 +18,10 @@
                 <a class="nav-link" href="#">Amenities</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">About Us</a>
+                <a class="nav-link" href="/about-us">About Us</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Contact</a>
+                <a class="nav-link" href="/contact-us">Contact</a>
               </li>
              
             </ul>
@@ -34,6 +34,9 @@
       </div>
     </nav>
 
+    <!-- does bootstrap have spacers? -->
+    <br><br>
+    
     <!-- order dropdown -->
     <div class="d-flex justify-content-center">
       <div class="dropdown centered-div">
@@ -43,43 +46,56 @@
         </button>
         <div class="dropdown-menu dropdown-menu-lg" aria-labelledby="dropdownMenuButton">
           <form id="order" class="px-4 py-3">
-            <!-- order selections -->
-            <select>
-              {{range .CoilSelection}}
-                <option value="{{.ID}}">{{.DisplayInformation}}<b>$ {{.Selling}}</b></option>
-              {{end}}
-            </select>
 
             <!-- contact infromation -->
             <div class="mb-3">
               <label for="name" class="form-label">Name:</label>
               <input type="text" class="form-control" id="name" aria-describedby="usernameHelp">
             </div>
+            <!-- phone number -->
+            <div class="mb-3">
+              <label for="phone" class="form-label">Phone Number:</label>
+              <input type= "text" class="form-control" id="phone"> <!-- does bootstrap have a custom phone input type??? -->
+            </div>
+            <!-- email -->
             <div class="mb-3">
               <label for="email" class="form-label">Email address:</label>
               <input type= "email" class="form-control" id="email" aria-describedby="emailHelp">
               <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
             </div>
+            
             <!-- delivery address -->
             <div class="mb-3">
               <label for="streetAddress1" class="form-label">Street 1:</label>
               <input type="text" class="form-control" id="streetAddress">
             </div>
+            
             <div class="mb-3">
               <label for="streetAddress2" class="form-label">Street 2:</label>
               <input type="text" class="form-control" id="streetAddress2">
             </div>
+            
             <div class="mb-3">
               <label for="city" class="form-label">City: </label>
               <input type="text" class="form-control" id="city">
             </div>
+            
             <div class="mb-3">
               <label for="state" class="form-label">State:</label>
               <input type="text" class="form-control" id="state">
             </div>
+            
             <div class="mb-3">
               <label for="zip" class="form-label">Zip Code:</label>
               <input type="text" class="form-control" id="zip">
+
+            <!-- order selections -->
+            <select>
+              {{range .CoilSelection}}
+                <option value="{{.ID}}">{{.DisplayInformation}}<b>  $ {{.Selling}}</b></option>
+              {{end}}
+            </select>
+
             </div>
             <button type="submit" class="btn btn-primary">Submit Order</button>
           </form>
