@@ -19,7 +19,7 @@ type Order struct {
     ID                  int
     OrderDate           time.Time
     RequestedDelivery   time.Time
-    CustomerContact     []CustomerContact
+    CustomerContact     []CustomerContactInformation
     GutterCoil          []GutterCoil
     GutterRuns          []GutterRun
     DeliveryCharge      []DeliveryCharge
@@ -27,7 +27,7 @@ type Order struct {
 }
 
 
-type ContactInformation struct {
+type CustomerContactInformation struct {
     Name    string
     Phone   string
     Address []Address

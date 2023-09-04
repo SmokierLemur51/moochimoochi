@@ -43,3 +43,31 @@ func IndexHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 
+func AboutHandler(w http.ResponseWriter, r *http.Request) {
+	page := models.PageData{
+		Page: "about.html",
+		Title: TITLE,
+		CoilSelection: GUTTER_OPTIONS(),
+	}
+
+	err := utils.RenderTemplate(w, page)
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+		return
+	}
+}
+
+
+func ContactHandler(w http.ResponseWriter, r *http.Request) {
+	page := models.PageData{
+		Page: "contact.html",
+		Title: TITLE,
+		CoilSelection: GUTTER_OPTIONS(),
+	}
+
+	err := utils.RenderTemplate(w, page)
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+		return
+	}
+}

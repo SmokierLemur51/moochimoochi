@@ -10,6 +10,6 @@ import (
 func ConfigureRoutes(router *chi.Mux) {
 	router.Get("/", handlers.IndexHandler)
 	router.Get("/about-us", handlers.AboutHandler)
-	router.Get("/contact-us", handlers.ContractingHandler)
+	router.Get("/contact-us", handlers.ContactHandler)
 }
 
