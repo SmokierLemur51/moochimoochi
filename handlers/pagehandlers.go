@@ -27,7 +27,7 @@ func GUTTER_OPTIONS() []models.GutterCoil {
 }
 
 
-
+// render index page
 func IndexHandler(w http.ResponseWriter, r *http.Request) {
 	page := models.PageData{
 		Page: "index.html",
@@ -42,7 +42,7 @@ func IndexHandler(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
-
+// render about page
 func AboutHandler(w http.ResponseWriter, r *http.Request) {
 	page := models.PageData{
 		Page: "about.html",
@@ -57,7 +57,7 @@ func AboutHandler(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
-
+// render contact page
 func ContactHandler(w http.ResponseWriter, r *http.Request) {
 	page := models.PageData{
 		Page: "contact.html",
